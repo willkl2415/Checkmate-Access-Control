@@ -1,75 +1,72 @@
-/* static/style.css */
-body {
-    font-family: Arial, sans-serif;
+body.login-background {
     margin: 0;
     padding: 0;
-}
-
-.container {
-    display: flex;
+    font-family: Arial, sans-serif;
+    background-image: url("../static/95ae1a46-c16b-45d8-928a-85e096496041.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     height: 100vh;
 }
 
-.left-panel {
-    width: 20%;
-    background-color: #f3f3f3;
-    padding: 25px;
-    overflow-y: auto;
+.login-overlay {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* dark overlay for text contrast */
 }
 
-.right-panel {
-    width: 78%;
+.login-container {
+    background: rgba(255, 255, 255, 0.92);
     padding: 40px;
-    overflow-y: auto;
+    border-radius: 12px;
+    text-align: center;
+    width: 350px;
 }
 
-.logo {
-    max-height: 300px;
-    object-fit: contain;
-    margin-bottom: 20px;
+.login-welcome {
+    font-size: 26px;
+    margin-bottom: 30px;
+    color: #111;
 }
 
-input[type="text"], select {
+.login-input {
+    display: block;
     width: 100%;
     padding: 12px;
-    margin: 8px 0;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 1px solid #aaa;
+    border-radius: 6px;
     box-sizing: border-box;
 }
 
-.green-button {
+.email-input {
+    font-size: 18px;
+}
+
+.password-input {
+    font-size: 14px;
+}
+
+.login-button {
     background-color: #4CAF50;
     color: white;
+    padding: 12px;
     border: none;
-    padding: 10px 24px;
+    width: 100%;
+    font-size: 16px;
     cursor: pointer;
+    border-radius: 6px;
 }
 
-.red-button {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    padding: 10px 24px;
-    margin-left: 10px;
-    cursor: pointer;
+.login-button:hover {
+    background-color: #45a049;
 }
 
-.left-panel h2 {
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
-}
-.copyright-message {
-    font-size: 14px;
-    font-weight: bold;
-    text-align: center;
-    color: #555;
+.error {
+    color: red;
     margin-bottom: 15px;
-}
-li {
-    margin-bottom: 25px;
-    line-height: 1.9;
+    font-weight: bold;
 }
