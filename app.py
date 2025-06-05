@@ -1,19 +1,20 @@
 # app.py
-
-from flask import Flask, render_template, request, redirect, url_for
-from answer_engine import get_answer
+import os
 import json
+from flask import Flask, render_template, request, redirect, url_for, session
+from answer_engine import get_answer
+from auth import authenticate, login_required, get_role, users
 
 app = Flask(__name__)
+app.secret_key = "your_secret_key"
 
-# Load chunks from JSON
 with open("data/chunks.json", "r", encoding="utf-8") as f:
     chunks_data = json.load(f)
 
-# Create document list from chunks
 documents = sorted(set(chunk["document"] for chunk in chunks_data))
 
 @app.route("/", methods=["GET", "POST"])
+@login_required()
 def index():
     question = ""
     selected_doc = ""
@@ -43,5 +44,31 @@ def index():
         question=question,
         documents=["All Documents"] + documents,
         selected_doc=selected_doc,
-        refine_query=refine_query
+        refine_query=refine_query,
+        user=session.get("username"),
+        role=get_role(session.get("username"))
     )
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    error = ""
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
+        if authenticate(username, password):
+            session["username"] = username
+            return redirect(url_for("index"))
+        else:
+            error = "Invalid username or password"
+    return render_template("login.html", error=error)
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect(url_for("login"))
+
+@app.route("/admin")
+@login_required(role="admin")
+def admin():
+    return render_template("admin.html", users=users)
+
