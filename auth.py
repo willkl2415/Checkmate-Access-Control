@@ -1,27 +1,36 @@
 # auth.py
-from flask import Blueprint, render_template, request, redirect, url_for, session, flash
+from flask import session, redirect, url_for
+import hashlib
 
-auth_bp = Blueprint("auth", __name__)
-
-# In-memory user store — for simplicity, usernames and passwords are hardcoded
 users = {
-    "admin": "adminpass",
-    "analyst": "dsat2025"
+    "analyst": hashlib.sha256("dsat2025".encode()).hexdigest(),
+    "admin": hashlib.sha256("admin2025".encode()).hexdigest()
 }
 
-@auth_bp.route("/login", methods=["GET", "POST"])
-def login():
-    if request.method == "POST":
-        username = request.form.get("username")
-        password = request.form.get("password")
-        if username in users and users[username] == password:
-            session["username"] = username
-            return redirect(url_for("index"))
-        flash("Invalid username or password")
-    return render_template("login.html")
+user_roles = {
+    "analyst": "user",
+    "admin": "admin"
+}
 
-@auth_bp.route("/logout")
-def logout():
-    session.pop("username", None)
-    return redirect(url_for("login"))
+def hash_password(password):
+    return hashlib.sha256(password.encode()).hexdigest()
 
+def authenticate(username, password):
+    if username in users and users[username] == hash_password(password):
+        return True
+    return False
+
+def get_role(username):
+    return user_roles.get(username, "user")
+
+def login_required(role="user"):
+    def wrapper(func):
+        def decorated_function(*args, **kwargs):
+            if "username" not in session:
+                return redirect(url_for("login"))
+            if role == "admin" and get_role(session["username"]) != "admin":
+                return redirect(url_for("index"))
+            return func(*args, **kwargs)
+        decorated_function.__name__ = func.__name__
+        return decorated_function
+    return wrapper
