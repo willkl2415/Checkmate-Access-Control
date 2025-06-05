@@ -1,4 +1,18 @@
+# app.py
+
+from flask import Flask, render_template, request, redirect, url_for
+from answer_engine import get_answer
+import json
+
 app = Flask(__name__)
+
+# Load chunks from JSON
+with open("data/chunks.json", "r", encoding="utf-8") as f:
+    chunks_data = json.load(f)
+
+# Create document list from chunks
+documents = sorted(set(chunk["document"] for chunk in chunks_data))
+
 @app.route("/", methods=["GET", "POST"])
 def index():
     question = ""
