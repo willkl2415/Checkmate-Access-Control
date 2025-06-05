@@ -1,4 +1,3 @@
-<!-- templates/login.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,23 +5,21 @@
     <title>Login - Check-Mate</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
-<div class="container">
-    <div class="left-panel">
-        <h1>Welcome to Check-Mate</h1>
-        <img src="{{ url_for('static', filename='checkmate.png') }}" alt="Logo" class="logo">
+<body class="login-background">
+    <div class="login-overlay">
+        <div class="login-container">
+            <h1 class="login-welcome">Welcome to Check-Mate</h1>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="error">{{ messages[0] }}</div>
+                {% endif %}
+            {% endwith %}
+            <form method="POST">
+                <input type="email" name="username" placeholder="Email address" class="login-input email-input" required>
+                <input type="password" name="password" placeholder="Password" class="login-input password-input" required>
+                <button type="submit" class="login-button">Login</button>
+            </form>
+        </div>
     </div>
-    <div class="right-panel">
-        <h2 style="margin-bottom: 20px;">Check-Mate Login</h2>
-        <form method="post">
-            <input type="text" name="username" placeholder="Username" required><br><br>
-            <input type="password" name="password" placeholder="Password" required><br><br>
-            <button type="submit" class="green-button">Login</button>
-        </form>
-        {% if error %}
-            <p style="color: red; margin-top: 10px;">{{ error }}</p>
-        {% endif %}
-    </div>
-</div>
 </body>
 </html>
