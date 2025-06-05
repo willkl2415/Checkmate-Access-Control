@@ -1,109 +1,58 @@
-/* static/style.css */
-
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-}
-
-.container {
-    display: flex;
-    height: 100vh;
-}
-
-.left-panel {
-    width: 20%;
-    background-color: #f3f3f3;
-    padding: 25px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.right-panel {
-    width: 78%;
-    padding: 40px;
-    overflow-y: auto;
-}
-
-.logo {
-    max-height: 300px;
-    object-fit: contain;
-    margin-bottom: 20px;
-}
-
-input[type="text"], input[type="password"], select {
-    width: 100%;
-    padding: 12px;
-    margin: 8px 0;
-    box-sizing: border-box;
-}
-
-.green-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 24px;
-    cursor: pointer;
-}
-
-.red-button {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    padding: 10px 24px;
-    margin-left: 10px;
-    cursor: pointer;
-}
-
-/* Login page specific background styling */
-body.login-background {
-    background-image: url("../static/checkmate3.jpg");
+    font-family: Arial, sans-serif;
+    background-image: url('../static/Checkmate 3.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     height: 100vh;
+}
+
+.login-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
 }
 
-/* Login card container */
-.login-container {
-    background-color: rgba(255, 255, 255, 0.95);
+.login-box {
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 40px;
     border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+    width: 340px;
     text-align: center;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-    width: 300px;
 }
 
-.login-container h2 {
+.login-box h2 {
     margin-bottom: 20px;
-    font-size: 22px;
+    font-size: 24px;
+    font-weight: bold;
 }
 
-.login-container input[type="text"],
-.login-container input[type="password"] {
+input[type="text"],
+input[type="password"] {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
+    padding: 12px;
+    margin: 10px 0;
+    box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-.login-container button {
+button {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     background-color: #4CAF50;
-    border: none;
     color: white;
-    font-size: 16px;
+    border: none;
     border-radius: 5px;
+    font-size: 16px;
     cursor: pointer;
+    margin-top: 10px;
 }
 
-.login-container button:hover {
+button:hover {
     background-color: #45a049;
 }
