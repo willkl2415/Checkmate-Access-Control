@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>Login - Check-Mate</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body class="login-background">
-    <div class="login-overlay">
-        <div class="login-container">
-            <h1 class="login-welcome">Welcome to Check-Mate</h1>
-            {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                    <div class="error">{{ messages[0] }}</div>
-                {% endif %}
-            {% endwith %}
-            <form method="POST">
-                <input type="email" name="username" placeholder="Email address" class="login-input email-input" required>
-                <input type="password" name="password" placeholder="Password" class="login-input password-input" required>
-                <button type="submit" class="login-button">Login</button>
-            </form>
-        </div>
+<body>
+    <div class="top-description">
+        Inspired by the finality of the phrase in chess, ”Check-Mate” here is a cutting-edge AI solution which enables you to instantly search, filter, and interrogate massive volumes of structured Systems Approach to Training (SAT) and Defence Systems Approach to Training (DSAT) documentation – using OpenAI’s natural language and intelligence, not in hours…not in minutes…but less than 5 seconds.
+    </div>
+
+    <div class="login-container">
+        <h2>Welcome to Check-Mate</h2>
+        <form method="POST">
+            <input type="text" name="username" placeholder="Email address" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <div class="bottom-tagline">
+        Check-Mate isn’t just a nice to have. It’s your winning move.
     </div>
 </body>
 </html>
