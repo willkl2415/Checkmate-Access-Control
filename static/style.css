@@ -1,12 +1,96 @@
 /* static/style.css */
 
+/* GLOBAL DEFAULTS */
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    font-family: Arial, sans-serif;
 }
 
-/* Shared container layout */
+/* LOGIN PAGE BACKGROUND: Applies only when body has class */
+body.login-page {
+    background: url("/static/checkmate3.jpg") no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* LOGIN CONTAINER BOX */
+.login-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* LOGIN HEADING */
+.login-container h2 {
+    margin-bottom: 30px;
+    font-size: 26px;
+    font-weight: bold;
+    color: #222;
+}
+
+/* INPUT FIELDS */
+.login-container input[type="text"],
+.login-container input[type="email"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* LOGIN BUTTON */
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-container button:hover {
+    background-color: #4cae4c;
+}
+
+/* TOP NARRATIVE ABOVE LOGIN */
+.top-message {
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    line-height: 1.3;
+    text-align: left;
+    color: white;
+    max-width: 900px;
+    margin: 40px auto 20px auto;
+    padding: 0 20px;
+}
+
+/* BOTTOM STRAPLINE BELOW LOGIN */
+.bottom-message {
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/* MAIN APP (POST-LOGIN) PANEL LAYOUT */
 .container {
     display: flex;
     height: 100vh;
@@ -56,70 +140,4 @@ input[type="text"], select {
     padding: 10px 24px;
     margin-left: 10px;
     cursor: pointer;
-}
-
-/* === LOGIN PAGE ONLY === */
-body.login-page-background {
-    background: url("/static/checkmate3.jpg") no-repeat center center fixed;
-    background-size: cover;
-    font-family: Arial, sans-serif;
-}
-
-.login-container {
-    background-color: rgba(255, 255, 255, 0.95);
-    padding: 40px;
-    border-radius: 10px;
-    width: 360px;
-    margin: 100px auto;
-    text-align: center;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
-}
-
-.login-container input[type="text"],
-.login-container input[type="password"] {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.login-container button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 12px;
-    width: 100%;
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 16px;
-}
-
-.login-container button:hover {
-    background-color: #45a049;
-}
-
-/* Top and Bottom text on login page */
-.top-message {
-    color: white;
-    font-size: 14px;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    text-align: left;
-    max-width: 900px;
-    margin: 50px auto 20px auto;
-    padding: 0 20px;
-    white-space: pre-line;
-}
-
-.bottom-message {
-    position: absolute;
-    bottom: 40px;
-    width: 100%;
-    text-align: center;
-    color: white;
-    font-family: Arial, sans-serif;
-    font-size: 32px;
-    font-weight: bold;
 }
