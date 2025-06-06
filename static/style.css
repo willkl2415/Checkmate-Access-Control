@@ -14,16 +14,15 @@ body {
     text-align: center;
 }
 
-/* Top text block */
+/* Top paragraph */
 .top-message {
     max-width: 900px;
     font-size: 14pt;
     line-height: 1.5;
     color: white;
-    margin-top: 40px;
-    margin-left: auto;
-    margin-right: auto;
     padding: 0 20px;
+    margin-top: 50px;
+    margin-bottom: 30px;  /* Adds clean space before login box */
 }
 
 /* Login box */
@@ -34,10 +33,10 @@ body {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
     width: 90%;
     max-width: 400px;
-    margin: 0 auto;
+    margin-bottom: 40px; /* Slight downward shift */
 }
 
-/* Login heading */
+/* Heading */
 .login-container h2 {
     margin-bottom: 30px;
     font-size: 26px;
@@ -45,7 +44,7 @@ body {
     color: #222;
 }
 
-/* Input fields */
+/* Inputs */
 .login-container input[type="text"],
 .login-container input[type="email"],
 .login-container input[type="password"] {
@@ -75,12 +74,12 @@ body {
     background-color: #4cae4c;
 }
 
-/* Bottom message */
+/* Bottom tagline */
 .bottom-message {
     font-size: 32pt;
     font-weight: bold;
     color: white;
     font-family: Arial, sans-serif;
-    margin-bottom: 40px;
+    margin-bottom: 60px;  /* Pulls it off the floor */
     white-space: nowrap;
 }
