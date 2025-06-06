@@ -4,7 +4,7 @@ import re
 
 app = Flask(__name__)
 
-with open("chunks.json", "r", encoding="utf-8") as f:
+with open("data/chunks.json", "r", encoding="utf-8") as f:
     chunks_data = json.load(f)
 
 # Pre-extract unique document names
