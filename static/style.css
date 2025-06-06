@@ -54,41 +54,29 @@ body {
     font-size: 16px;
 }
 
-.button-row {
+.right-panel .button-row {
     display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    margin-top: 10px;
+    gap: 10px;
 }
 
-.ask-button {
+.right-panel .ask-button,
+.right-panel .clear-button {
     flex: 1;
-    height: 45px;
+    height: 50px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+.right-panel .ask-button {
     background-color: #4CAF50;
     color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 15px;
-    cursor: pointer;
 }
 
-.clear-button {
-    flex: 1;
-    height: 45px;
+..right-panel .clear-button {
     background-color: #d9534f;
     color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 15px;
-    cursor: pointer;
-}
-
-.ask-button:hover {
-    background-color: #45a049;
-}
-
-.clear-button:hover {
-    background-color: #c9302c;
 }
 
 .response-section {
