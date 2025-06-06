@@ -19,8 +19,8 @@ body {
     box-shadow: 2px 0 6px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: column;
-    align-items: center;          /* Change from flex-start to center */
-    text-align: left;           /* Add this to centre text inside child elements */
+    align-items: center;
+    text-align: left;
 }
 
 .right-panel {
@@ -54,18 +54,26 @@ body {
     font-size: 16px;
 }
 
-.right-panel button {
-    padding: 10px 16px;
-    margin-right: 10px;
+.button-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.button-row button {
+    flex: 1;
+    height: 60px;
+    font-size: 18px;
+    padding: 0 20px;
     background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 15px;
 }
 
-.right-panel button:hover {
+.button-row button:hover {
     background-color: #45a049;
 }
 
@@ -160,10 +168,10 @@ body {
     text-align: center;
     margin-top: 30px;
 }
+
 /* Uniform form element styling */
 input[type="text"],
-select,
-button {
+select {
     font-size: 20px;
     line-height: 28px;
     padding: 15px;
