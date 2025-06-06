@@ -20,7 +20,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;          /* Change from flex-start to center */
-    text-align: center;           /* Add this to centre text inside child elements */
+    text-align: left;           /* Add this to centre text inside child elements */
 }
 
 .right-panel {
