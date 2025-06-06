@@ -1,3 +1,4 @@
+<!-- templates/login.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,27 +6,25 @@
     <title>Login - Check-Mate</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
-    <div class="login-wrapper">
-        <div class="top-message">
-            Inspired by the finality of the phrase in chess, “Check-Mate” is a cutting-edge AI powered solution<br>
-            which enables you to instantly search, interrogate, and filter massive volumes of Systems Approach to<br>
-            and Defence Systems Approach to Training (SAT & DSAT) documentation – using OpenAI’s natural<br>
-            language and intelligence, not in hours…not in minutes…but in 5 seconds or less.
-        </div>
+<body class="login-page-background">
+    <div class="top-message">
+        Inspired by the finality of the phrase in chess, “Check-Mate” is a cutting-edge AI powered solution<br>
+        which enables you to instantly search, interrogate, and filter massive volumes of Systems Approach to<br>
+        and Defence Systems Approach to Training (SAT & DSAT) documentation – using OpenAI’s natural<br>
+        language and intelligence, not in hours…not in minutes…but in 5 seconds or less.
+    </div>
 
-        <div class="login-container">
-            <h2>Welcome to Check-Mate</h2>
-            <form method="POST">
-                <input type="text" name="username" placeholder="Email address" required>
-                <input type="password" name="password" placeholder="Password" required>
-                <button type="submit">Login</button>
-            </form>
-        </div>
+    <div class="login-container">
+        <h2>Welcome to Check-Mate</h2>
+        <form method="POST">
+            <input type="text" name="username" placeholder="Email address" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
 
-        <div class="bottom-message">
-            Check-Mate isn’t just a nice to have. It’s your winning move.
-        </div>
+    <div class="bottom-message">
+        Check-Mate isn’t just a nice to have. It’s your winning move.
     </div>
 </body>
 </html>
