@@ -56,25 +56,39 @@ body {
 
 .button-row {
     display: flex;
-    gap: 10px;
+    justify-content: space-between;
+    gap: 12px;
     margin-top: 10px;
-    margin-bottom: 20px;
 }
 
-.button-row button {
+.ask-button {
     flex: 1;
-    height: 60px;
-    font-size: 18px;
-    padding: 0 20px;
+    height: 45px;
     background-color: #4CAF50;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
+    font-size: 15px;
     cursor: pointer;
 }
 
-.button-row button:hover {
+.clear-button {
+    flex: 1;
+    height: 45px;
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.ask-button:hover {
     background-color: #45a049;
+}
+
+.clear-button:hover {
+    background-color: #c9302c;
 }
 
 .response-section {
@@ -96,103 +110,4 @@ body {
     padding: 12px;
     margin-bottom: 10px;
     border-left: 4px solid #4CAF50;
-}
-
-/* === Login screen background only === */
-.login-page-background {
-    background: url("/static/checkmate3.jpg") no-repeat center center fixed;
-    background-size: cover;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.login-container {
-    background-color: rgba(255, 255, 255, 0.92);
-    padding: 40px;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-    width: 100%;
-    max-width: 400px;
-}
-
-.login-container h2 {
-    margin-bottom: 30px;
-    font-size: 26px;
-    font-weight: bold;
-    color: #222;
-}
-
-.login-container input[type="text"],
-.login-container input[type="password"] {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 16px;
-}
-
-.login-container button {
-    width: 100%;
-    padding: 12px;
-    background-color: #5cb85c;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.login-container button:hover {
-    background-color: #4cae4c;
-}
-
-.top-message {
-    color: white;
-    font-size: 14px;
-    text-align: center;
-    line-height: 1.6;
-    margin-top: -50px;
-    margin-bottom: 40px;
-}
-
-.bottom-message {
-    color: white;
-    font-size: 32px;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 30px;
-}
-
-/* Uniform form element styling */
-input[type="text"],
-select {
-    font-size: 20px;
-    line-height: 28px;
-    padding: 15px;
-    height: 60px;
-    box-sizing: border-box;
-    width: 100%;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-/* Specific spacing between input/select blocks */
-form input,
-form select {
-    display: block;
-    margin-bottom: 20px;
-}
-
-/* Match button height with inputs */
-button {
-    height: 60px;
-    font-size: 18px;
-    padding: 0 20px;
 }
