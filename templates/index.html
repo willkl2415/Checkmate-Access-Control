@@ -6,69 +6,50 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-<div class="container">
-    <div class="left-panel">
-        <h2><strong>Welcome to Check-Mate</strong></h2>
-        <img src="/static/checkmate.png" class="logo" alt="Check-Mate Logo">
-        <p>Check-Mate is a go-to application for Training Consultants, Analysts, Designers, and Decision-Makers who demand accuracy, assurance, and speed – without compromise.</p>
-        <p>Check-Mate is a cutting-edge AI solution built to deliver instant clarity in high-complexity environments – especially those shaped by Systems Approach to Training (SAT) and Defence Systems Approach to Training (DSAT).</p>
-        <p>Inspired by the finality of the phrase in chess, Check-Mate empowers you to instantly search, interrogate and filter massive volumes of structured documentation – training, guidance, standards, and more – using OpenAI’s natural language and intelligent keyword filters.</p>
-        <p>Ask a question. Get an answer. Not in Hours, Not in Minutes but in 5 seconds or less.</p>
-        <p>Drawn directly from authoritative sources, every response is precise, context-rich, and ready for action.</p>
-        <p><strong>Check-Mate doesn’t just speed things up—it delivers time savings of up to 99.7%, transforming slow, manual searches into rapid, evidence-based decisions.</strong></p>
-        <p><strong>Check-Mate isn’t just a nice to have. It’s your final move.</strong></p>
-    </div>
+    <div class="container">
+        <div class="left-panel">
+            <h2><strong>Welcome to Check-Mate</strong></h2>
+            <img src="/static/checkmate.png" class="logo" alt="Check-Mate Logo">
+            <p>Check-Mate is a go-to application for Training Consultants, Analysts, Designers, and Decision-Makers who demand accuracy, assurance, and speed – without compromise.</p>
+            <p>Check-Mate is a cutting-edge AI solution built to deliver instant clarity in high-complexity environments – especially those shaped by Systems Approach to Training (SAT) and Defence Systems Approach to Training (DSAT).</p>
+            <p>Inspired by the finality of the phrase in chess, Check-Mate empowers you to instantly search, interrogate and filter massive volumes of structured documentation – training, guidance, standards, and more – using OpenAI’s natural language and intelligent keyword filters.</p>
+            <p>Ask a question. Get an answer. Not in Hours, Not in Minutes but in 5 seconds or less.</p>
+            <p>Drawn directly from authoritative sources, every response is precise, context-rich, and ready for action.</p>
+            <p><strong>Check-Mate doesn’t just speed things up—it delivers time savings of up to 99.7%, transforming slow, manual searches into rapid, evidence-based decisions.</strong></p>
+            <p><strong>Check-Mate isn’t just a nice to have. It’s your final move.</strong></p>
+        </div>
 
-    <div class="right-panel">
-        <form method="POST">
-            <input type="text" name="question" placeholder="Type your question..." value="{{ question }}">
-            <select name="document" id="document">
-                {% for doc in documents %}
-                    <option value="{{ doc }}" {% if doc == selected_doc %}selected{% endif %}>{{ doc }}</option>
-                {% endfor %}
-            </select>
-            <input type="text" name="refine_query" id="refine_query" placeholder="Refine your search..." value="{{ refine_query }}">
-
-            <div class="button-row">
-                <button type="submit" class="ask-button" name="ask">Ask Check-Mate</button>
-                <button type="submit" class="clear-button" name="clear" value="1">Clear Search</button>
-            </div>
-        </form>
-
-        <div class="results">
-            <h3>Check-Mate’s Response ({{ answer|length }} results)</h3>
-            {% if answer %}
-                <ul>
-                    {% for item in answer %}
-                        <li><strong>{{ item.document }}</strong> — {{ item.section }}<br>{{ item.content }}</li>
+        <div class="right-panel">
+            <form method="POST">
+                <input type="text" name="question" placeholder="Type your question..." value="{{ question }}">
+                
+                <select name="document">
+                    <option value="All Documents" {% if selected_doc == 'All Documents' %}selected{% endif %}>All Documents</option>
+                    {% for doc in documents %}
+                        <option value="{{ doc }}" {% if selected_doc == doc %}selected{% endif %}>{{ doc }}</option>
                     {% endfor %}
-                </ul>
-            {% else %}
-                <p>Use the document filter to view all matches.</p>
+                </select>
+                
+                <input type="text" name="refine_query" placeholder="Refine your search..." value="{{ refine_query }}">
+
+                <div class="button-row">
+                    <button type="submit" class="ask-button" name="ask">Ask Check-Mate</button>
+                    <button type="submit" class="clear-button" name="clear" value="1">Clear Search</button>
+                </div>
+            </form>
+
+            {% if answer %}
+                <div class="response-section">
+                    <h3>Check-Mate’s Response ({{ answer|length }} results)</h3>
+                    <ul>
+                        {% for item in answer %}
+                            <li><strong>{{ item.document }}</strong> — {{ item.section or 'Uncategorised' }}<br>{{ item.content }}</li>
+                        {% endfor %}
+                    </ul>
+                    <p><em>Use the document filter to view all matches.</em></p>
+                </div>
             {% endif %}
         </div>
     </div>
-</div>
-
-<script>
-    const documentSelect = document.getElementById("document");
-    const refineInput = document.getElementById("refine_query");
-
-    const refineSuggestions = {
-        "DCTS Guidance on Job Analysis.docx": ["KSA", "DIF", "TOR", "OPS"],
-        "Maritime Acquisition Training Guide (MATG) Part 2 Training Analysis Standards V2.0.docx": ["TAS", "Analysis", "Methods"]
-    };
-
-    documentSelect.addEventListener("change", function () {
-        const docName = this.value;
-        const suggestions = refineSuggestions[docName];
-        if (suggestions) {
-            refineInput.setAttribute("placeholder", "e.g. " + suggestions.join(", "));
-        } else {
-            refineInput.setAttribute("placeholder", "Refine your search...");
-        }
-    });
-</script>
-
 </body>
 </html>
