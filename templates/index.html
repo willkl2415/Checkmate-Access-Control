@@ -1,3 +1,4 @@
+<!-- templates/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,31 +21,45 @@
 
             <p>Drawn directly from authoritative sources, every response is precise, context-rich, and ready for action.</p>
 
-            <p>Check-Mate doesn’t just speed things up—it delivers time savings of up to 99.7%, transforming slow, manual searches into rapid, evidence-based decisions.</p>
-
             <p><strong>Check-Mate isn’t just a nice to have. It’s your final move.</strong></p>
         </div>
+
         <div class="right-panel">
             <form method="POST">
                 <input type="text" name="question" placeholder="Type your question..." value="{{ question }}">
-                <select name="document">
+
+                <select name="document" onchange="this.form.submit()">
                     {% for doc in documents %}
-                        <option value="{{ doc }}" {% if selected_doc == doc %}selected{% endif %}>{{ doc }}</option>
+                        <option value="{{ doc }}" {% if doc == selected_doc %}selected{% endif %}>{{ doc }}</option>
                     {% endfor %}
                 </select>
+
+                {% if selected_doc in document_sections %}
+                <select name="section">
+                    <option value="All Sections">All Sections</option>
+                    {% for section in document_sections[selected_doc] %}
+                        <option value="{{ section }}" {% if section == selected_section %}selected{% endif %}>{{ section }}</option>
+                    {% endfor %}
+                </select>
+                {% endif %}
+
                 <input type="text" name="refine_query" placeholder="Refine your search..." value="{{ refine_query }}">
-                <button type="submit" name="ask">Ask Check-Mate</button>
+
+                <button type="submit">Ask Check-Mate</button>
                 <button type="submit" name="clear" value="1">Clear Search</button>
             </form>
 
-            <div class="response-section">
-                <h3>Check-Mate’s Response ({{ answer|length }} results)</h3>
-                <p>Use the document filter to view all matches.</p>
-                <ul>
-                    {% for a in answer %}
-                        <li><strong>{{ a.document }}</strong> — <em>{{ a.section }}</em><br>{{ a.content }}</li>
-                    {% endfor %}
-                </ul>
+            <div class="response-block">
+                <h3>Check-Mate’s Response ({{ answer | length }} results)</h3>
+                {% if answer %}
+                    <ul>
+                        {% for chunk in answer %}
+                            <li><strong>{{ chunk.document }}</strong> — {{ chunk.section }}<br>{{ chunk.content }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>Use the document filter to view all matches.</p>
+                {% endif %}
             </div>
         </div>
     </div>
