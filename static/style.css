@@ -160,3 +160,31 @@ body {
     text-align: center;
     margin-top: 30px;
 }
+/* Uniform form element styling */
+input[type="text"],
+select,
+button {
+    font-size: 20px;
+    line-height: 28px;
+    padding: 15px;
+    height: 60px;
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Specific spacing between input/select blocks */
+form input,
+form select {
+    display: block;
+    margin-bottom: 20px;
+}
+
+/* Match button height with inputs */
+button {
+    height: 60px;
+    font-size: 18px;
+    padding: 0 20px;
+}
