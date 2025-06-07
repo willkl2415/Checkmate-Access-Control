@@ -20,18 +20,21 @@
         </div>
 
         <div class="right-panel">
+            {% if error %}
+                <div style="color: red; font-weight: bold; margin-bottom: 10px;">{{ error }}</div>
+            {% endif %}
             <form method="POST">
                 <input type="text" name="question" placeholder="Type your question..." value="{{ question }}">
 
                 <select name="document">
-                    <option value="All Documents" {% if selected_doc == 'All Documents' %}selected{% endif %}>All Documents</option>
+                    <option value="All Documents">All Documents</option>
                     {% for doc in documents %}
-                        <option value="{{ doc }}" {% if selected_doc == doc %}selected{% endif %}>{{ doc }}</option>
+                        <option value="{{ doc }}">{{ doc }}</option>
                     {% endfor %}
                 </select>
 
                 <select name="refine">
-                    <option value="">All Sections</option>
+                    <option value="All Sections">All Sections</option>
                     {% for section in refine_options %}
                         <option value="{{ section }}">{{ section }}</option>
                     {% endfor %}
@@ -43,11 +46,11 @@
                 </div>
             </form>
 
-            {% if answer %}
+            {% if results %}
                 <div class="response-section">
-                    <h3>Check-Mate’s Response ({{ answer|length }} results)</h3>
+                    <h3>Check-Mate’s Response ({{ results|length }} results)</h3>
                     <ul>
-                        {% for item in answer %}
+                        {% for item in results %}
                             <li><strong>{{ item.document }}</strong> — {{ item.section or 'Uncategorised' }}<br>{{ item.content }}</li>
                         {% endfor %}
                     </ul>
@@ -56,26 +59,5 @@
             {% endif %}
         </div>
     </div>
-
-<script>
-    const refineBox = document.querySelector('input[name="refine_query"]');
-    const docFilter = document.querySelector('select[name="document"]');
-
-    if (refineBox) {
-        refineBox.addEventListener("input", function () {
-            const query = refineBox.value;
-            const selectedFile = docFilter.value;
-
-            if (query.length > 2) {
-                fetch(`/autocomplete?query=${query}&filename=${encodeURIComponent(selectedFile)}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log("Suggestions:", data);
-                    });
-            }
-        });
-    }
-</script>
-
 </body>
 </html>
