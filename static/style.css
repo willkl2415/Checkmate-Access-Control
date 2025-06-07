@@ -69,17 +69,17 @@ body {
     cursor: pointer;
 }
 
-/* Ask Check-Mate = Lime Green */
-.right-panel .clear-button {
-    background-color: #32CD32;
-    color: white;
-}
-/* Clear Search = Crimson Red */
+/* Ask Check-Mate = Green */
 .right-panel .ask-button {
-    background-color: #DC143C;
+    background-color: #4CAF50;
     color: white;
 }
 
+/* Clear Search = Red */
+.right-panel .clear-button {
+    background-color: #d9534f;
+    color: white;
+}
 
 .response-section {
     margin-top: 40px;
