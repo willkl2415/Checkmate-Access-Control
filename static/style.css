@@ -69,13 +69,15 @@ body {
     cursor: pointer;
 }
 
+/* Ask Check-Mate = Crimson Red */
 .right-panel .ask-button {
-    background-color: #DC143C; /* crimson red */
+    background-color: #DC143C;
     color: white;
 }
 
+/* Clear Search = Lime Green */
 .right-panel .clear-button {
-    background-color: #32CD32; /* lime green */
+    background-color: #32CD32;
     color: white;
 }
 
