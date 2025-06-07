@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Check-Mate</title>
-    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=2">
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const refineInput = document.querySelector("input[name='refine_query']");
