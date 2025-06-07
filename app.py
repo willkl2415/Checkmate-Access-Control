@@ -5,7 +5,7 @@ import os
 app = Flask(__name__)
 
 # Define path to your chunks file
-CHUNKS_PATH = os.path.join("data", "chunks.json")
+CHUNKS_PATH = os.path.join("chunks.json")
 
 chunks = []
 documents = []
