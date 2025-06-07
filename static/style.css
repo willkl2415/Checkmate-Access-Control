@@ -56,34 +56,27 @@ body {
 
 .right-panel .button-row {
     display: flex;
-    justify-content: space-between;
-    width: 100%;
     gap: 10px;
 }
 
 .right-panel .ask-button,
 .right-panel .clear-button {
     flex: 1;
-    padding: 12px 0;
+    height: 50px;
     font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    border-radius: 6px;
+    border-radius: 4px;
     border: none;
     cursor: pointer;
+}
+
+.right-panel .ask-button {
+    background-color: #4CAF50;
     color: white;
 }
 
-/* Ask Check-Mate = Green */
-.right-panel .ask-button {
-    background-color: #4CAF50;
-    margin-right: 5px;
-}
-
-/* Clear Search = Red */
-.right-panel .clear-button {
+..right-panel .clear-button {
     background-color: #d9534f;
-    margin-left: 5px;
+    color: white;
 }
 
 .response-section {
