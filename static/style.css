@@ -64,7 +64,7 @@ body {
     flex: 1;
     height: 50px;
     font-size: 16px;
-    border-radius: 4px;
+    border-radius: 1px;
     border: none;
     cursor: pointer;
 }
