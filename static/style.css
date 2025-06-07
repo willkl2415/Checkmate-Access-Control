@@ -58,16 +58,8 @@ body {
     display: flex;
     gap: 10px;
 }
-
+.right-panel .clear-button
 .right-panel .ask-button,
-    flex: 1;
-    height: 50px;
-    font-size: 16px;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-}
-.right-panel .clear-button {
     flex: 1;
     height: 50px;
     font-size: 16px;
