@@ -44,8 +44,8 @@
                 {% endfor %}
             </select>
             <input type="text" name="refine_query" placeholder="Refine your search..." value="{{ refine_query }}" />
-            <button type="submit" class="green-button"><strong>Ask Check-Mate</strong></button>
-            <button type="submit" name="clear" value="1" class="red-button"><strong>Clear Search</strong></button>
+            <button type="submit" class="ask-button" name="ask"><strong>Ask Check-Mate</strong></button>
+            <button type="submit" class="clear-button" name="clear" value="1"><strong>Clear Search</strong></button>
         </form>
 
         <h3>Check-Mate’s Response ({{ answer|length }} results)</h3>
