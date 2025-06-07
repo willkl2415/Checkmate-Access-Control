@@ -4,14 +4,26 @@ import os
 
 app = Flask(__name__)
 
-# Correct path to the chunks file
+# Define path to your chunks file
 CHUNKS_PATH = os.path.join("data", "chunks.json")
-with open(CHUNKS_PATH, "r", encoding="utf-8") as f:
-    chunks = json.load(f)
 
-# Build dropdown values
-documents = sorted(set(chunk.get("document", "Unknown") for chunk in chunks))
-refine_options = sorted(set(chunk.get("section", "Uncategorised") for chunk in chunks if chunk.get("section")))
+chunks = []
+documents = []
+refine_options = []
+error_message = ""
+
+# Try loading chunks.json safely
+try:
+    with open(CHUNKS_PATH, "r", encoding="utf-8") as f:
+        chunks = json.load(f)
+        documents = sorted(set(chunk.get("document", "Unknown") for chunk in chunks))
+        refine_options = sorted(set(chunk.get("section", "Uncategorised") for chunk in chunks if chunk.get("section")))
+except FileNotFoundError:
+    error_message = f"ERROR: Could not find {CHUNKS_PATH}"
+except json.JSONDecodeError:
+    error_message = f"ERROR: {CHUNKS_PATH} is not valid JSON"
+except Exception as e:
+    error_message = f"UNEXPECTED ERROR: {str(e)}"
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -25,9 +37,9 @@ def index():
 
         for chunk in chunks:
             if question in chunk.get("content", "").lower():
-                if selected_doc and chunk.get("document") != selected_doc:
+                if selected_doc and selected_doc != "All Documents" and chunk.get("document") != selected_doc:
                     continue
-                if selected_section and chunk.get("section") != selected_section:
+                if selected_section and selected_section != "All Sections" and chunk.get("section") != selected_section:
                     continue
                 results.append(chunk)
 
@@ -36,7 +48,8 @@ def index():
         question=question,
         results=results,
         documents=documents,
-        refine_options=refine_options
+        refine_options=refine_options,
+        error=error_message
     )
 
 if __name__ == "__main__":
