@@ -5,6 +5,12 @@ body {
     font-family: Arial, sans-serif;
 }
 
+/* Standardise box sizing for inputs and dropdowns */
+input[type="text"],
+select {
+    box-sizing: border-box;
+}
+
 /* === Layout for main app === */
 .container {
     display: flex;
