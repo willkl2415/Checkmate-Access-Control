@@ -60,6 +60,13 @@ body {
 }
 
 .right-panel .ask-button,
+    flex: 1;
+    height: 50px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
 .right-panel .clear-button {
     flex: 1;
     height: 50px;
@@ -68,7 +75,6 @@ body {
     border: none;
     cursor: pointer;
 }
-
 .right-panel .ask-button {
     background-color: #4CAF50;
     color: white;
