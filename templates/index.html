@@ -43,11 +43,11 @@
                 </div>
             </form>
 
-            {% if results %}
+            {% if answer %}
                 <div class="response-section">
-                    <h3>Check-Mate’s Response ({{ results|length }} results)</h3>
+                    <h3>Check-Mate’s Response ({{ answer|length }} results)</h3>
                     <ul>
-                        {% for item in results %}
+                        {% for item in answer %}
                             <li><strong>{{ item.document }}</strong> — {{ item.section or 'Uncategorised' }}<br>{{ item.content }}</li>
                         {% endfor %}
                     </ul>
