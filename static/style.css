@@ -57,11 +57,12 @@ body {
 .right-panel .button-row {
     display: flex;
     gap: 10px;
+    justify-content: space-between;
 }
 
 .right-panel .ask-button,
 .right-panel .clear-button {
-    flex: 1;
+    width: 50%;
     height: 50px;
     font-size: 16px;
     border-radius: 4px;
