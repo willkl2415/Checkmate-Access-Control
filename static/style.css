@@ -70,13 +70,13 @@ body {
 }
 
 .right-panel .ask-button {
-    background-color: #A9423F;
-    color: fiery red;
+    background-color: #DC143C; /* crimson red */
+    color: white;
 }
 
 .right-panel .clear-button {
-    background-color: #00AB32;
-    color: luminous green;
+    background-color: #32CD32; /* lime green */
+    color: white;
 }
 
 .response-section {
