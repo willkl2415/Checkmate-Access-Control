@@ -58,8 +58,9 @@ body {
     display: flex;
     gap: 10px;
 }
-.right-panel .clear-button
+
 .right-panel .ask-button,
+.right-panel .clear-button {
     flex: 1;
     height: 50px;
     font-size: 16px;
@@ -67,6 +68,7 @@ body {
     border: none;
     cursor: pointer;
 }
+
 .right-panel .ask-button {
     background-color: #4CAF50;
     color: white;
@@ -76,6 +78,7 @@ body {
     background-color: #d9534f;
     color: white;
 }
+
 
 
 /* Ask Check-Mate = Green */
