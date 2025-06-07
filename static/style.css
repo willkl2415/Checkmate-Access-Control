@@ -57,6 +57,9 @@ body {
 .right-panel .button-row {
     display: flex;
     gap: 10px;
+    width: 100%;
+}
+
 }
 
 .right-panel .ask-button,
