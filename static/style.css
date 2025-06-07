@@ -57,7 +57,7 @@ body {
 .right-panel .button-row {
     display: flex;
     justify-content: space-between;
-    width: 50%;
+    width: 30%;
     gap: 10px;
     margin-top: 10px;
 }
